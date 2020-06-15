@@ -30,7 +30,7 @@ namespace EgetTest05.Pages.Cities
             Cities = await _context.City.ToListAsync().ConfigureAwait(true);                                            // All Cities
             Country = await _context.Country.Where(c => c.Id == CId).FirstOrDefaultAsync().ConfigureAwait(true);        // Chosen Country
             CitiesInCountry = await _context.City.Where(c => c.CountryID == CId).ToListAsync().ConfigureAwait(true);    // Cities already added to the chosen Country
-            CountryId = CId;                                                                                            // Id of the chosen Country
+            CountryId = CId;                                                                                            // Id of the chosen Country 
         }
 
         // ---------------------------------------------------------------------------------------------------------------------------------------

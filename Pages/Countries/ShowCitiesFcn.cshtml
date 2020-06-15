@@ -1,0 +1,34 @@
+﻿@page
+@model EgetTest05.Pages.Countries.ShowCitiesFcnModel
+@{
+    ViewData["Title"] = "ShowCitiesFcn";
+}
+
+<h1>Show Cities in a Country</h1>
+<hr>
+<h3>
+    @Html.LabelForModel(Model.CountryName)
+</h3>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Cities")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!(Model.Cities == null))
+        {
+            @foreach (var item in Model.Cities)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

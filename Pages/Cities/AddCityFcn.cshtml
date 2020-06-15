@@ -1,0 +1,53 @@
+﻿@page
+@model EgetTest05.Pages.Cities.AddCityFcnModel
+@{
+    ViewData["Title"] = "AddCityFcn";
+}
+
+<h1>Add a City to a Country</h1>
+<hr>
+<h3>
+    @Html.LabelForModel(Model.Country.Name)
+</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Label("Cities already added")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!(Model.CitiesInCountry == null))
+                {
+                    @foreach (var item in Model.CitiesInCountry)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="CId" value="CountryId">
+            <div class="form-group">
+                <label class="control-label">City</label>
+                <input asp-for="City.Name" class="form-control" />
+                <span asp-validation-for="City.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
